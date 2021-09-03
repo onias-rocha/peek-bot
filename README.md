@@ -2,7 +2,7 @@
 ## Peek-bot
 
 
-Esse bot tem como finalidade fazer consultas em mensagens de consumers do Fury automaticamente.
+Esse bot tem como finalidade fazer consultas em mensagens de consumers no Fury automaticamente.
 
 
 ## 1) Pré Requisitos 

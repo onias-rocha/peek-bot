@@ -1,10 +1,11 @@
+require('dotenv').config()
 const puppeteer = require('puppeteer')
-
-const username = ''
-const password = ''
-const consumerName = ''
-let deuCerto = false
-let tentativas = 0
+const username = process.env.USERNAME
+const password = process.env.PASSWORD
+// const consumerName = 'fraud-marketplace-fakes-buybox-items'
+const consumerName = 'action-events'
+let success = false
+let attempts = 0
 
 const runBot = async () => {
   const browser = await puppeteer.launch()
@@ -18,7 +19,6 @@ const runBot = async () => {
   await page.type('input[name=username]', username)
   await page.type('input[name=password]', password)
   await page.click('button[type=submit]')
-  // await page.waitForTimeout(5000)
   await page.waitForSelector('button[type=button]')
   await page.goto(
     'https://web-legacy.furycloud.io/#/fraud-judge/admin/services/bigqueuenew'
@@ -30,30 +30,27 @@ const runBot = async () => {
   await page.waitForTimeout(5000)
   await page.click('i[class="glyphicon glyphicon-eye-open"]')
 
-  while (deuCerto === false) {
-    // await page.setDefaultNavigationTimeout(4000)
+  while (success === false) {
     try {
       await page.waitForSelector('textarea', {
-        timeout: tentativas === 0 ? 30000 : 2000,
+        timeout: attempts === 0 ? 30000 : 2000,
       })
 
-      const corpoDaMensagem = await page.evaluate(() => {
+      const message = await page.evaluate(() => {
         return document.getElementsByTagName('textarea')[0].value
       })
 
-      console.log('Message: ' + corpoDaMensagem)
+      console.log('Message: ' + message)
 
-      deuCerto = true
+      success = true
     } catch (error) {
-      tentativas += 1
+      attempts += 1
 
       await page.evaluate(() => {
         document.getElementsByTagName('button')[2].click()
       })
 
-      console.log(
-        `Nenhuma mensagem obtida, tentando novamente. Tentativas: ${tentativas}`
-      )
+      console.log(`Failed to fetch message, retrying. Attempts: ${attempts}`)
     }
   }
 

@@ -5,13 +5,13 @@
 Esse bot tem como finalidade fazer consultas em mensagens de consumers no Fury automaticamente.
 
 
-## 1) Pré Requisitos 
+### Pré Requisitos 
 
 Ter NodeJS instalado em sua máquina <br>
 Estar conectado na VPN 
 
 
-#### Como utilizar
+### Como utilizar
 
 No terminal, navegar até a raíz do projeto e executar o comando:
 ```sh

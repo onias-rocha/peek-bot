@@ -2,32 +2,30 @@
 ## Peek-bot
 
 
-Esse bot tem como finalidade fazer consultas em mensagens de consumers no Fury automaticamente.
+This bot is intended to make queries on consumer messages in Fury automatically.
 
 
-### Pré Requisitos 
+### Prerequisites
+To have NodeJS installed in your machine <br>
+Be connected to the VPN
 
-Ter NodeJS instalado em sua máquina <br>
-Estar conectado na VPN 
 
+### How to use
 
-### Como utilizar
-
-No terminal, navegar até a raíz do projeto e executar o comando:
+On the terminal, cd into the project's root folder and execute the following command:
 ```sh
 $ npm install
 ```
 
-No arquivo src/bot.js, inserir nas variáveis username e password suas informações de login do fury. A variável consumerName também deve ser populada com o nome do consumer
-que você deseja dar o peek :
+In the src/bot.js file, enter your fury login information in the ```username``` and ```password``` variables. The ```consumerName``` variable must also be populated with the consumer name
+that you want to peek :
 ```Javascript
 const username = ''
 const password = ''
 const consumerName = ''
 ```
 
-Tendo feito os passos anteriores, rodar o seguinte comando para executar o bot: 
-```sh
+Having done the previous steps, run the following command to start up the bot:```sh
 $ node src/bot.js
 ````
 

@@ -2,7 +2,7 @@
 ## Peek-bot
 
 
-This bot is intended to make queries on consumer messages in Fury automatically.
+This bot is intended to "Peek" on consumer messages in Fury automatically.
 
 
 ### Prerequisites
